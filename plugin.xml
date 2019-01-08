@@ -21,7 +21,7 @@
 	sovrascritture per gestire la sovrapposizione del rendering delle notifiche push come descritto nelle stesse faq della
 	documentazione Pushwoosh: https://www.pushwoosh.com/docs/android-faq#section-using-pushwoosh-sdk-with-other-fcm-services
 	-->
-	<dependency id="cordova-plugin-firebase" url="https://github.com/redarea-snc/cordova-plugin-firebase.git" commit="redarea_pods_v1" />
+	<dependency id="cordova-plugin-firebase" url="https://github.com/redarea-snc/cordova-plugin-firebase.git" commit="redarea_pods_v2" />
 
 	<preference name="LOG_LEVEL" default="DEBUG" />
 	<preference name="IOS_FOREGROUND_ALERT_TYPE" default="NONE" />
