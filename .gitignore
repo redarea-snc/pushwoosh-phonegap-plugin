@@ -3,3 +3,6 @@
 /local.properties
 /.idea/
 /build.gradle
+.gradle
+build
+testandroidenv/.gradle

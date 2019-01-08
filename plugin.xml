@@ -16,6 +16,13 @@
 	<repo>https://github.com/Pushwoosh/pushwoosh-phonegap-plugin</repo>
 	<issue>https://github.com/Pushwoosh/pushwoosh-phonegap-plugin/issues</issue>
 
+	<!--
+	Rut - 07/01/2018 - da oggi Firebase viene installato dal nostro plugin Pushwoosh customizzato, che opera le relative
+	sovrascritture per gestire la sovrapposizione del rendering delle notifiche push come descritto nelle stesse faq della
+	documentazione Pushwoosh: https://www.pushwoosh.com/docs/android-faq#section-using-pushwoosh-sdk-with-other-fcm-services
+	-->
+	<dependency id="cordova-plugin-firebase" url="https://github.com/redarea-snc/cordova-plugin-firebase.git" commit="ios_pods_latesttravis" />
+
 	<preference name="LOG_LEVEL" default="DEBUG" />
 	<preference name="IOS_FOREGROUND_ALERT_TYPE" default="NONE" />
 	<preference name="ANDROID_FOREGROUND_PUSH" default="false" />
@@ -92,6 +99,16 @@
 			</receiver>
 		</config-file>
 
+		<edit-config file="AndroidManifest.xml" target="/manifest/application/service[@android:name='org.apache.cordova.firebase.FirebasePluginMessagingService']"
+					 mode="overwrite">
+			<service android:name="it.rikorda.phototeller.firebaseintegration.FirebaseMessagingRouterService"></service>
+		</edit-config>
+
+		<edit-config file="AndroidManifest.xml" target="/manifest/application/service[@android:name='org.apache.cordova.firebase.FirebasePluginInstanceIDService']"
+					 mode="overwrite">
+			<service android:name="it.rikorda.phototeller.firebaseintegration.FirebaseInstanceIdRouterService"></service>
+		</edit-config>
+
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="PushNotification">
 				<param name="android-package" value="com.pushwoosh.plugin.pushnotifications.PushNotifications" onload="true" />
@@ -109,6 +126,11 @@
 
 		<source-file src="src/android/src/com/pushwoosh/plugin/internal/PhonegapPluginProvider.java"
 			target-dir="src/com/pushwoosh/plugin/internal" />
+
+		<source-file src="src/android/src/it/rikorda/phototeller/firebaseintegration/FirebaseInstanceIdRouterService.java"
+					 target-dir="src/it/rikorda/phototeller/firebaseintegration" />
+		<source-file src="src/android/src/it/rikorda/phototeller/firebaseintegration/FirebaseMessagingRouterService.java"
+					 target-dir="src/it/rikorda/phototeller/firebaseintegration" />
 
 
 		<framework src="com.google.android.gms:play-services-gcm:+" />

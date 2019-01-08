@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    repositories {
+        google() // Gradle 4.0+
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google() // Gradle 4.0+
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+}
+
+android {
+    compileSdkVersion 27
+    
+
+
+    defaultConfig {
+        applicationId "com.example.testandroidenv"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+       release {
+           minifyEnabled false
+           proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+       }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['CordovaLib/src', 'src/main/java', '../src/android/src']
+            res.srcDirs = ['src/main/res']
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: '../src/android/libs', include: ['*.jar'])
+
+    compile 'com.google.android.gms:play-services-gcm:+'
+    compile 'com.google.android.gms:play-services-location:+'
+
+    compile 'com.google.firebase:firebase-core:+'
+    compile 'com.google.firebase:firebase-messaging:+'
+    compile 'com.google.firebase:firebase-config:+'
+    compile 'com.google.firebase:firebase-perf:+'
+
+    implementation  'com.android.support:support-v4:27+'
+    implementation  'com.android.support:appcompat-v7:27+'
+    implementation  'com.android.support:recyclerview-v7:27+'
+    implementation  'com.android.support:design:27+'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.60'
+    implementation 'com.pushwoosh:pushwoosh:5.11.0'
+    implementation 'com.pushwoosh:pushwoosh-amazon:5.11.0'
+    implementation 'com.pushwoosh:pushwoosh-badge:5.11.0'
+    implementation 'com.pushwoosh:pushwoosh-gcm:5.11.0'
+    implementation 'com.pushwoosh:pushwoosh-inbox:5.11.0'
+    implementation 'com.pushwoosh:pushwoosh-inbox-ui:5.11.0'
+    compile 'me.leolin:ShortcutBadger:1.1.4@aar'
+    compile 'com.google.firebase:firebase-auth:+'
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
+        transitive = true
+    }
+}
