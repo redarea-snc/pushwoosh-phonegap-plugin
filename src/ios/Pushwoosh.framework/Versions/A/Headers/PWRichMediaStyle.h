@@ -29,9 +29,9 @@ FOUNDATION_EXPORT NSTimeInterval const PWRichMediaStyleDefaultAnimationDuration;
  Built-in Rich Media presenting animations.
  
  Example:
- 
+ @code
  style.animationDelegate = [PWRichMediaStyleSlideLeftAnimation new];
- 
+ @endcode
  */
 @interface PWRichMediaStyleSlideLeftAnimation : NSObject <PWRichMediaStyleAnimationDelegate>
 @end
@@ -81,11 +81,11 @@ typedef PWLoadingView *(^PWRichMediaLoadingViewBlock)(void);
  Block to customize Rich Media loading view.
  
  Example:
- 
+ @code
  style.loadingViewBlock = ^PWLoadingView *{
     return [[[NSBundle mainBundle] loadNibNamed:@"LoadingView" owner:self options:nil] lastObject];
  };
- 
+ @endcode
  */
 @property (nonatomic) PWRichMediaLoadingViewBlock loadingViewBlock;
 
@@ -103,6 +103,11 @@ typedef PWLoadingView *(^PWRichMediaLoadingViewBlock)(void);
  A Boolean value that determines whether HTML5 videos play inline or use the native full-screen controller.
  */
 @property (nonatomic) NSNumber *allowsInlineMediaPlayback;
+
+/**
+ A Boolean value that determines whether HTML5 videos can play automatically or require the user to start playing them.
+ */
+@property (nonatomic) NSNumber *mediaPlaybackRequiresUserAction;
 
 @end
 

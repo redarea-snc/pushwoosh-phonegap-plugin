@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="pushwoosh-cordova-plugin" version="7.13.0">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="pushwoosh-cordova-plugin" version="7.18.11">
 
 	<name>Pushwoosh</name>
 
@@ -33,11 +33,7 @@
 
 	<!-- android -->
 	<platform name="android">
-		<dependency id="cordova-support-google-services" version="1.2.1" />
-
-		<config-file>
-			<access origin="*.pushwoosh.com" />
-		</config-file>
+		<framework src="build.gradle" custom="true" type="gradleReference" />
 
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
 			<meta-data android:name="com.pushwoosh.log_level" android:value="$LOG_LEVEL" />
@@ -81,8 +77,8 @@
 		<source-file src="src/android/src/it/rikorda/phototeller/firebaseintegration/FirebaseMessagingRouterService.java"
 					 target-dir="src/it/rikorda/phototeller/firebaseintegration" />
 
-		<framework src="com.google.firebase:firebase-core:+" />
-		<framework src="com.google.firebase:firebase-messaging:+" />
+		<framework src="com.google.firebase:firebase-core:(+,17.0.0)" />
+		<framework src="com.google.firebase:firebase-messaging:(+,19.0.0)" />
 
 		<framework src="com.android.support:support-v4:27.+" />
         <framework src="com.android.support:appcompat-v7:27.+" />
@@ -91,11 +87,11 @@
         <framework src="com.android.support.constraint:constraint-layout:1.0.2" />
         <framework src="com.github.bumptech.glide:glide:4.7.1" />
         <framework src="org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.60" />
-        <framework src="com.pushwoosh:pushwoosh:5.13.0"/>
-		<framework src="com.pushwoosh:pushwoosh-amazon:5.13.0"/>
-		<framework src="com.pushwoosh:pushwoosh-badge:5.13.0"/>
-        <framework src="com.pushwoosh:pushwoosh-inbox:5.13.0"/>
-        <framework src="com.pushwoosh:pushwoosh-inbox-ui:5.13.0"/>
+        <framework src="com.pushwoosh:pushwoosh:5.22.6"/>
+		<framework src="com.pushwoosh:pushwoosh-amazon:5.22.6"/>
+		<framework src="com.pushwoosh:pushwoosh-badge:5.22.6"/>
+        <framework src="com.pushwoosh:pushwoosh-inbox:5.22.6"/>
+        <framework src="com.pushwoosh:pushwoosh-inbox-ui:5.22.6"/>
 	</platform>
 
 	<!-- ios -->
@@ -109,10 +105,6 @@
 			<feature name="PushNotification">
 				<param name="ios-package" value="PushNotification"/>
 			</feature>
-		</config-file>
-
-		<config-file>
-			<access origin="*.pushwoosh.com" />
 		</config-file>
 
 		<config-file target="*-Info.plist" parent="Pushwoosh_LOG_LEVEL">
