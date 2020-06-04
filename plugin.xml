@@ -21,7 +21,7 @@
 	sovrascritture per gestire la sovrapposizione del rendering delle notifiche push come descritto nelle stesse faq della
 	documentazione Pushwoosh: https://www.pushwoosh.com/docs/android-faq#section-using-pushwoosh-sdk-with-other-fcm-services
 	-->
-	<dependency id="cordova-plugin-firebase" url="https://github.com/redarea-snc/cordova-plugin-firebase.git" commit="gcm_migration" />
+	<dependency id="cordova-plugin-firebase" url="https://github.com/redarea-snc/cordova-plugin-firebase.git" commit="redarea_20200604" />
 
 	<preference name="LOG_LEVEL" default="DEBUG" />
 	<preference name="IOS_FOREGROUND_ALERT_TYPE" default="NONE" />
@@ -85,7 +85,7 @@
         <framework src="com.android.support:recyclerview-v7:27.+" />
         <framework src="com.android.support:design:27.+" />
         <framework src="com.android.support.constraint:constraint-layout:1.0.2" />
-        <framework src="com.github.bumptech.glide:glide:4.7.1" />
+        <framework src="com.github.bumptech.glide:glide:4.11.0" />
         <framework src="org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.60" />
         <framework src="com.pushwoosh:pushwoosh:5.22.6"/>
 		<framework src="com.pushwoosh:pushwoosh-amazon:5.22.6"/>
